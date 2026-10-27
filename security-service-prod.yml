@@ -1,0 +1,15 @@
+# security-service · perfil prod: todo corre en Docker Compose y se habla por nombre de servicio.
+
+spring:
+  datasource:
+    url: jdbc:mysql://mysql-security:3306/logitrack_security_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+  jpa:
+    show-sql: false
+
+logging:
+  level:
+    ar.edu.unju.fi: INFO
+
+info:
+  app:
+    ambiente: prod

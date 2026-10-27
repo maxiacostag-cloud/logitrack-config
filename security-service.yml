@@ -1,0 +1,22 @@
+# security-service: valores que no cambian entre ambientes.
+
+server:
+  port: 8083
+
+spring:
+  datasource:
+    username: ${DB_USER:logitrack}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+# Duración de los tokens en milisegundos (24 horas). No es un dato sensible.
+jwt:
+  expiration-ms: 86400000
+
+info:
+  app:
+    nombre: security-service
+    descripcion: Usuarios, autenticación, roles y emisión de JWT

@@ -1,0 +1,35 @@
+# shipment-service: valores que no cambian entre ambientes.
+
+server:
+  port: 8081
+
+spring:
+  http:
+    client:
+      connect-timeout: 2s
+      read-timeout: 5s
+  datasource:
+    username: ${DB_USER:logitrack}
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+        type:
+          preferred_uuid_jdbc_type: CHAR
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+info:
+  app:
+    nombre: shipment-service
+    descripcion: Gestión de envíos, tarifas, asignaciones y auditoría

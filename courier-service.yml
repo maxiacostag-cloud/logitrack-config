@@ -1,0 +1,18 @@
+# courier-service: valores que no cambian entre ambientes.
+
+server:
+  port: 8082
+
+spring:
+  datasource:
+    username: ${DB_USER:logitrack}
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+info:
+  app:
+    nombre: courier-service
+    descripcion: Gestión de repartidores y disponibilidad

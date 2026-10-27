@@ -1,0 +1,20 @@
+# Configuración común a todos los microservicios de LogiTrack.
+# Cada servicio la recibe además de su archivo propio (<servicio>.yml y <servicio>-<perfil>.yml).
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  info:
+    env:
+      enabled: true
+
+# El secreto de los JWT nunca se guarda en este repositorio:
+# cada servicio lo toma de la variable de entorno JWT_SECRET.
+jwt:
+  secret: ${JWT_SECRET}
+
+logging:
+  level:
+    root: INFO

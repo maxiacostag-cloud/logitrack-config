@@ -1,0 +1,15 @@
+# courier-service · perfil dev: la app corre en el IDE y la base en Docker (puerto 3308 de la PC).
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3308/logitrack_couriers?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    ar.edu.unju.fi.logitrack: DEBUG
+
+info:
+  app:
+    ambiente: dev

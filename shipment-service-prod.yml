@@ -1,0 +1,19 @@
+# shipment-service · perfil prod: todo corre en Docker Compose y se habla por nombre de servicio.
+
+spring:
+  datasource:
+    url: jdbc:mysql://mysql-shipment:3306/logitrack_shipments?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+  jpa:
+    show-sql: false
+
+courier:
+  service:
+    url: http://courier-service:8082
+
+logging:
+  level:
+    ar.edu.unju.fi.logitrack: INFO
+
+info:
+  app:
+    ambiente: prod

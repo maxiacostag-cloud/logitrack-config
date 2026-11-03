@@ -1,4 +1,10 @@
 # security-service · perfil dev: la app corre en el IDE y la base en Docker (puerto 3309 de la PC).
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8065/eureka/
+  instance:
+    prefer-ip-address: true
 
 spring:
   datasource:

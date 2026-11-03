@@ -1,0 +1,12 @@
+# Configuración de eureka-server (S3-01). Archivo NUEVO en el repositorio logitrack-config.
+server:
+  port: 8065
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false   # el servidor no se registra a sí mismo
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

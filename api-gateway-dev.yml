@@ -1,0 +1,25 @@
+# api-gateway · perfil dev: la app corre en el IDE y Eureka en la PC (puerto 8065).
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8065/eureka/
+  instance:
+    prefer-ip-address: true
+
+# En dev se puede ver qué rutas cargó el gateway en /actuator/gateway/routes.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
+  endpoint:
+    gateway:
+      access: read-only
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+
+info:
+  app:
+    ambiente: dev

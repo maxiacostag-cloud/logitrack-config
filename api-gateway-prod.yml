@@ -1,0 +1,15 @@
+# api-gateway · perfil prod: todo corre en Docker Compose y se habla por nombre de servicio.
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8065/eureka/
+  instance:
+    prefer-ip-address: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
+
+info:
+  app:
+    ambiente: prod

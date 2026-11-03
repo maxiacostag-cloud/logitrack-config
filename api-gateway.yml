@@ -1,0 +1,29 @@
+# api-gateway (S3-05): punto único de entrada. Valores que no cambian entre ambientes.
+server:
+  port: 8066
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          # Las rutas usan el nombre con el que cada servicio se registra en Eureka (lb://).
+          # No se reescribe el path: los servicios ya usan estos mismos paths.
+          routes:
+            - id: security-service
+              uri: lb://SECURITY-SERVICE
+              predicates:
+                - Path=/api/v1/auth/**
+            - id: courier-service
+              uri: lb://COURIER-SERVICE
+              predicates:
+                - Path=/api/v1/repartidores/**
+            - id: shipment-service
+              uri: lb://SHIPMENT-SERVICE
+              predicates:
+                - Path=/api/v1/envios/**
+
+info:
+  app:
+    nombre: api-gateway
+    descripcion: Punto único de entrada al sistema y enrutamiento hacia los microservicios

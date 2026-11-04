@@ -11,6 +11,12 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: update
+    # La tabla repartidores guarda el id como texto (CHAR(36), ver db/init/02-couriers.sql):
+    # sin esto Hibernate manda el UUID en binario y el alta de repartidores falla con 500.
+    properties:
+      hibernate:
+        type:
+          preferred_uuid_jdbc_type: CHAR
 
 info:
   app:

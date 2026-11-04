@@ -7,6 +7,17 @@ spring:
     gateway:
       server:
         webflux:
+          # CORS (S3-08): se configura una sola vez acá, en el gateway, y no en cada servicio.
+          # Los orígenes permitidos se pueden cambiar con la variable CORS_ALLOWED_ORIGINS
+          # (varios separados por coma).
+          globalcors:
+            add-to-simple-url-handler-mapping: true
+            cors-configurations:
+              '[/**]':
+                allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173}
+                allowed-methods: GET,POST,PUT,PATCH,OPTIONS
+                allowed-headers: Authorization,Content-Type
+                max-age: 3600
           # Las rutas usan el nombre con el que cada servicio se registra en Eureka (lb://).
           # No se reescribe el path: los servicios ya usan estos mismos paths.
           routes:

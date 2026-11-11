@@ -20,3 +20,9 @@ info:
   app:
     nombre: security-service
     descripcion: Usuarios, autenticación, roles y emisión de JWT
+
+# Usuarios de demo (S4-14): security-service los crea al arrancar solo si llega la contraseña
+# por la variable de entorno USUARIOS_DEMO_PASSWORD (en Docker sale del .env de infra).
+logitrack:
+  usuarios-demo:
+    password: ${USUARIOS_DEMO_PASSWORD:}
